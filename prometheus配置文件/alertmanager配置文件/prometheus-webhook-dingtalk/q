@@ -1,0 +1,29 @@
+[0;1;31mWarning:[0m The unit file, source configuration file or drop-ins of prometheus-dingtalk.service changed on disk. Run 'systemctl daemon-reload' to reload units.
+● prometheus-dingtalk.service - prometheus-webhook-dingtalk
+   Loaded: loaded (/etc/systemd/system/prometheus-dingtalk.service; enabled; vendor preset: enabled)
+   Active: inactive (dead) since Wed 2020-07-22 10:55:04 CST; 38min ago
+ Main PID: 30073 (code=exited, status=0/SUCCESS)
+
+Jul 22 10:44:56 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:44:56.128Z caller=entry.go:22 component=web http_scheme=http http_proto=HTTP/1.1 http_method=POST remote_addr=127.0.0.1:46688 user_agent=Alertmanager/0.21.0 uri=http://localhost:8060/dingtalk/ops_dingding/send resp_status=400 resp_bytes_length=27 resp_elapsed_ms=90.891317 msg="request complete"
+Jul 22 10:45:53 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:45:53.317Z caller=entry.go:22 component=web http_scheme=http http_proto=HTTP/1.1 http_method=POST remote_addr=127.0.0.1:46688 user_agent=Alertmanager/0.21.0 uri=http://localhost:8060/dingtalk/ops_dingding/send resp_status=200 resp_bytes_length=2 resp_elapsed_ms=85.379816 msg="request complete"
+Jul 22 10:49:56 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=error ts=2020-07-22T02:49:56.123Z caller=dingtalk.go:103 component=web target=ops_dingding msg="Failed to send notification to DingTalk" respCode=460101 respMsg="message too long, exceed 20000 bytes"
+Jul 22 10:49:56 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:49:56.124Z caller=entry.go:22 component=web http_scheme=http http_proto=HTTP/1.1 http_method=POST remote_addr=127.0.0.1:46688 user_agent=Alertmanager/0.21.0 uri=http://localhost:8060/dingtalk/ops_dingding/send resp_status=400 resp_bytes_length=27 resp_elapsed_ms=86.418581 msg="request complete"
+Jul 22 10:51:23 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:51:23.305Z caller=entry.go:22 component=web http_scheme=http http_proto=HTTP/1.1 http_method=POST remote_addr=127.0.0.1:46688 user_agent=Alertmanager/0.21.0 uri=http://localhost:8060/dingtalk/ops_dingding/send resp_status=200 resp_bytes_length=2 resp_elapsed_ms=59.918389 msg="request complete"
+Jul 22 10:54:56 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=error ts=2020-07-22T02:54:56.096Z caller=dingtalk.go:103 component=web target=ops_dingding msg="Failed to send notification to DingTalk" respCode=460101 respMsg="message too long, exceed 20000 bytes"
+Jul 22 10:54:56 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:54:56.096Z caller=entry.go:22 component=web http_scheme=http http_proto=HTTP/1.1 http_method=POST remote_addr=127.0.0.1:46688 user_agent=Alertmanager/0.21.0 uri=http://localhost:8060/dingtalk/ops_dingding/send resp_status=400 resp_bytes_length=27 resp_elapsed_ms=59.103507 msg="request complete"
+Jul 22 10:55:04 VM-16-12-ubuntu systemd[1]: Stopping prometheus-webhook-dingtalk...
+Jul 22 10:55:04 VM-16-12-ubuntu prometheus-webhook-dingtalk[30073]: level=info ts=2020-07-22T02:55:04.364Z caller=main.go:189 msg="Received SIGTERM, exiting gracefully..."
+Jul 22 10:55:04 VM-16-12-ubuntu systemd[1]: Stopped prometheus-webhook-dingtalk.
+[0;1;31m●[0m prometheus.service - Prometheus
+   Loaded: loaded (/etc/systemd/system/prometheus.service; enabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Wed 2020-07-22 15:04:33 CST; 3min 50s ago
+     Docs: https://prometheus.io/docs/introduction/overview/
+  Process: 3078 ExecStart=/opt/prometheus-2.19.1/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/prometheus --web.console.templates=/etc/prometheus/consoles --web.console.libraries=/etc/prometheus/console_libraries --web.listen-address=0.0.0.0:9090 --web.external-url= [0;1;31m(code=exited, status=1/FAILURE)[0m
+ Main PID: 3078 (code=exited, status=1/FAILURE)
+
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: prometheus.service: Service hold-off time over, scheduling restart.
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: prometheus.service: Scheduled restart job, restart counter is at 5.
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: Stopped Prometheus.
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: [0;1;39m[0;1;31m[0;1;39mprometheus.service: Start request repeated too quickly.[0m
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: [0;1;39m[0;1;31m[0;1;39mprometheus.service: Failed with result 'exit-code'.[0m
+Jul 22 15:04:33 VM-16-12-ubuntu systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Prometheus.[0m

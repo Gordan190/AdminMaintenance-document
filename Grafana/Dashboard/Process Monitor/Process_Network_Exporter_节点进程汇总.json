@@ -1,0 +1,598 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 29,
+  "iteration": 1605063364970,
+  "links": [],
+  "panels": [
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.1.0-beta2",
+      "targets": [
+        {
+          "expr": "topk(2,process_memory_percent{instance=~\"$node\"})",
+          "interval": "",
+          "legendFormat": "{{cmd}}:{{pid}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Top5 内存占用",
+      "type": "bargauge"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "分区使用率、磁盘读取、磁盘写入、下载带宽、上传带宽，如果有多个网卡或者多个分区，是采集的使用率最高的网卡或者分区的数值。",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 4,
+      "pageSize": 10,
+      "showHeader": true,
+      "sort": {
+        "col": 6,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "进程名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "linkTargetBlank": false,
+          "linkTooltip": "浏览主机明细",
+          "linkUrl": "/d/9CWBz0bik/node-exporter?orgId=1&var-job=${job}&var-hostname=All&var-node=${__cell}&var-device=All",
+          "mappingType": 1,
+          "pattern": "cmd",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "进程pid",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "pid",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "内存使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #F",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "CPU使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Value #L",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "avg(process_cpu_percent{instance=~\"$node\"}) by(instance,pid,uid,cmd)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU使用率",
+          "refId": "L"
+        },
+        {
+          "expr": "avg(process_memory_percent{instance=~\"$node\"}) by(instance,pid,uid,cmd)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "内存使用率",
+          "refId": "F"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "进程资源总表(每页10行)",
+      "transform": "table",
+      "type": "table-old"
+    }
+  ],
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "Process"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "192.168.1.4:9500",
+          "value": "192.168.1.4:9500"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(process_uname_info{job=\"process-network\"},instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "node",
+        "multi": false,
+        "name": "node",
+        "options": [
+          {
+            "selected": false,
+            "text": "192.168.1.1:9500",
+            "value": "192.168.1.1:9500"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.2:9500",
+            "value": "192.168.1.2:9500"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.3:9500",
+            "value": "192.168.1.3:9500"
+          },
+          {
+            "selected": true,
+            "text": "192.168.1.4:9500",
+            "value": "192.168.1.4:9500"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.5:9500",
+            "value": "192.168.1.5:9500"
+          }
+        ],
+        "query": "label_values(process_uname_info{job=\"process-network\"},instance)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "886",
+          "value": "886"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(process_memory_percent{instance=~\"$node\"},pid)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "pid",
+        "multi": false,
+        "name": "pid",
+        "options": [
+          {
+            "selected": true,
+            "text": "886",
+            "value": "886"
+          },
+          {
+            "selected": false,
+            "text": "12986",
+            "value": "12986"
+          },
+          {
+            "selected": false,
+            "text": "7866",
+            "value": "7866"
+          },
+          {
+            "selected": false,
+            "text": "7869",
+            "value": "7869"
+          },
+          {
+            "selected": false,
+            "text": "1179",
+            "value": "1179"
+          },
+          {
+            "selected": false,
+            "text": "1180",
+            "value": "1180"
+          },
+          {
+            "selected": false,
+            "text": "1181",
+            "value": "1181"
+          },
+          {
+            "selected": false,
+            "text": "1182",
+            "value": "1182"
+          },
+          {
+            "selected": false,
+            "text": "1286",
+            "value": "1286"
+          },
+          {
+            "selected": false,
+            "text": "1287",
+            "value": "1287"
+          },
+          {
+            "selected": false,
+            "text": "1288",
+            "value": "1288"
+          },
+          {
+            "selected": false,
+            "text": "1289",
+            "value": "1289"
+          },
+          {
+            "selected": false,
+            "text": "1290",
+            "value": "1290"
+          },
+          {
+            "selected": false,
+            "text": "1291",
+            "value": "1291"
+          },
+          {
+            "selected": false,
+            "text": "1292",
+            "value": "1292"
+          },
+          {
+            "selected": false,
+            "text": "1293",
+            "value": "1293"
+          },
+          {
+            "selected": false,
+            "text": "1294",
+            "value": "1294"
+          },
+          {
+            "selected": false,
+            "text": "27583",
+            "value": "27583"
+          },
+          {
+            "selected": false,
+            "text": "1113",
+            "value": "1113"
+          },
+          {
+            "selected": false,
+            "text": "1114",
+            "value": "1114"
+          },
+          {
+            "selected": false,
+            "text": "1115",
+            "value": "1115"
+          },
+          {
+            "selected": false,
+            "text": "1116",
+            "value": "1116"
+          },
+          {
+            "selected": false,
+            "text": "1213",
+            "value": "1213"
+          },
+          {
+            "selected": false,
+            "text": "1214",
+            "value": "1214"
+          },
+          {
+            "selected": false,
+            "text": "1215",
+            "value": "1215"
+          },
+          {
+            "selected": false,
+            "text": "1216",
+            "value": "1216"
+          },
+          {
+            "selected": false,
+            "text": "1217",
+            "value": "1217"
+          },
+          {
+            "selected": false,
+            "text": "1218",
+            "value": "1218"
+          },
+          {
+            "selected": false,
+            "text": "1219",
+            "value": "1219"
+          },
+          {
+            "selected": false,
+            "text": "1220",
+            "value": "1220"
+          },
+          {
+            "selected": false,
+            "text": "1221",
+            "value": "1221"
+          },
+          {
+            "selected": false,
+            "text": "27575",
+            "value": "27575"
+          },
+          {
+            "selected": false,
+            "text": "7870",
+            "value": "7870"
+          },
+          {
+            "selected": false,
+            "text": "1074",
+            "value": "1074"
+          },
+          {
+            "selected": false,
+            "text": "1172",
+            "value": "1172"
+          },
+          {
+            "selected": false,
+            "text": "13014",
+            "value": "13014"
+          },
+          {
+            "selected": false,
+            "text": "27538",
+            "value": "27538"
+          },
+          {
+            "selected": false,
+            "text": "918",
+            "value": "918"
+          },
+          {
+            "selected": false,
+            "text": "12987",
+            "value": "12987"
+          },
+          {
+            "selected": false,
+            "text": "887",
+            "value": "887"
+          },
+          {
+            "selected": false,
+            "text": "13013",
+            "value": "13013"
+          },
+          {
+            "selected": false,
+            "text": "914",
+            "value": "914"
+          },
+          {
+            "selected": false,
+            "text": "13016",
+            "value": "13016"
+          },
+          {
+            "selected": false,
+            "text": "920",
+            "value": "920"
+          },
+          {
+            "selected": false,
+            "text": "12985",
+            "value": "12985"
+          },
+          {
+            "selected": false,
+            "text": "7865",
+            "value": "7865"
+          },
+          {
+            "selected": false,
+            "text": "885",
+            "value": "885"
+          },
+          {
+            "selected": false,
+            "text": "13015",
+            "value": "13015"
+          },
+          {
+            "selected": false,
+            "text": "919",
+            "value": "919"
+          },
+          {
+            "selected": false,
+            "text": "1073",
+            "value": "1073"
+          },
+          {
+            "selected": false,
+            "text": "1171",
+            "value": "1171"
+          },
+          {
+            "selected": false,
+            "text": "27537",
+            "value": "27537"
+          }
+        ],
+        "query": "label_values(process_memory_percent{instance=~\"$node\"},pid)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "datasource": "Prometheus",
+        "filters": [],
+        "hide": 0,
+        "label": "",
+        "name": "Filters",
+        "skipUrlSync": false,
+        "type": "adhoc"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Process_Network_Exporter_节点进程汇总",
+  "uid": "DKz4A_5Mz",
+  "version": 12
+}

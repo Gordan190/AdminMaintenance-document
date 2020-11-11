@@ -1,0 +1,4543 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "【中文版本】2020.06.28更新，增加整体资源展示！支持 Grafana6&7，Node Exporter v0.16及以上的版本，优化重要指标展示。包含整体资源展示与资源明细图表：CPU 内存 磁盘 IO 网络等监控指标。https://github.com/starsliao/Prometheus",
+  "editable": true,
+  "gnetId": 8919,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1605061527844,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "更新node_exporter",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://github.com/prometheus/node_exporter/releases"
+    },
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "更新当前仪表板",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://grafana.com/dashboards/8919"
+    },
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "StarsL.cn",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://starsl.cn"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "",
+      "type": "dashboards"
+    },
+    {
+      "icon": "dashboard",
+      "tags": [],
+      "targetBlank": false,
+      "title": "点击返回汇总面板",
+      "tooltip": "点击返回汇总面板",
+      "type": "link",
+      "url": "/d/gordan_node/node_exporter_20200706?orgId=1&var-job=node-exporter&var-hostname=All&var-node=All&var-device=All"
+    }
+  ],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 189,
+      "panels": [],
+      "repeat": null,
+      "title": "资源明细：【$show_hostname】",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 11,
+        "x": 0,
+        "y": 1
+      },
+      "id": 23763572023,
+      "options": {
+        "bgColor": "rgba(0, 0, 0, 0.3)",
+        "clockType": "24 hour",
+        "countdownSettings": {
+          "endCountdownTime": "2020-07-30T22:05:23+08:00",
+          "endText": "00:00:00"
+        },
+        "dateSettings": {
+          "dateFormat": "YYYY-MM-DD",
+          "fontSize": "20px",
+          "fontWeight": "bold",
+          "showDate": true
+        },
+        "mode": "time",
+        "timeSettings": {
+          "fontSize": "48px",
+          "fontWeight": "bold"
+        },
+        "timezone": "",
+        "timezoneSettings": {
+          "fontSize": "12px",
+          "fontWeight": "normal",
+          "showTimezone": true,
+          "zoneFormat": "offsetAbbv"
+        }
+      },
+      "pluginVersion": "7.1.0-beta2",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "当前时钟",
+      "type": "grafana-clock-panel"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "分区使用率、磁盘读取、磁盘写入、下载带宽、上传带宽，如果有多个网卡或者多个分区，是采集的使用率最高的网卡或者分区的数值。",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 300,
+      "pageSize": 10,
+      "showHeader": true,
+      "sort": {
+        "col": 19,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "主机名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "link": false,
+          "linkTooltip": "",
+          "linkUrl": "",
+          "mappingType": 1,
+          "pattern": "nodename",
+          "thresholds": [],
+          "type": "string",
+          "unit": "bytes"
+        },
+        {
+          "alias": "IP（链接到明细）",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "linkTargetBlank": false,
+          "linkTooltip": "点击返回",
+          "linkUrl": "/d/gordan_node/node-exporter?orgId=1&var-job=${job}&var-hostname=All&var-node=${__cell}&var-device=All",
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "CPU核",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": null,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": " 运行时间",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #D",
+          "thresholds": [],
+          "type": "number",
+          "unit": "s"
+        },
+        {
+          "alias": "CPU系统使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #E",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "CPU总使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #F",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "CPU用户使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #G",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "CPU空闲使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #H",
+          "thresholds": [
+            "10485760",
+            "20485760"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "是否在线",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "node_uname_info{job=~\"$job\",instance=~\"$node\"} - 0",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "主机名",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(time() - node_boot_time_seconds{job=~\"$job\",instance=~\"$node\"})by(instance)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "运行时间",
+          "refId": "D"
+        },
+        {
+          "expr": "avg(up{job=\"node-exporter\",instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "节点是否存活",
+          "refId": "B"
+        },
+        {
+          "expr": "count(node_cpu_seconds_total{job=~\"$job\",mode='system',instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "总核数",
+          "refId": "C"
+        },
+        {
+          "expr": "node_load5{job=~\"$job\",instance=~\"$node\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "5分钟负载",
+          "refId": "L"
+        },
+        {
+          "expr": "100 - ( avg(  irate(node_cpu_seconds_total{job=~\"$job\",mode=\"idle\",instance=~\"$node\"}[5m])  )  by (instance) * 100   )",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU总使用率",
+          "refId": "F"
+        },
+        {
+          "expr": " avg(  irate(node_cpu_seconds_total{mode=\"user\",instance=~\"$node\"}[5m])  )  by (instance) * 100 ",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU用户使用率",
+          "refId": "G"
+        },
+        {
+          "expr": " avg(  irate(node_cpu_seconds_total{job=~\"$job\",mode=\"system\",instance=~\"$node\"}[5m])  )  by (instance) * 100   ",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU系统使用率",
+          "refId": "E"
+        },
+        {
+          "expr": "(avg by (environment,instance) (irate(node_cpu_seconds_total{job=~\"$job\",mode=\"idle\",instance=~\"$node\"}[5m])))  * 100",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU空闲使用率",
+          "refId": "H"
+        },
+        {
+          "expr": "avg(irate(node_cpu_seconds_total{job=~\"$job\",mode=\"iowait\",instance=~\"$node\"}[5m])) by(instance) * 100",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU iowait",
+          "refId": "I"
+        },
+        {
+          "expr": "avg(irate(node_cpu_seconds_total{job=~\"$job\",mode=~\"softirq|nice|irq|steal\",instance=~\"$node\"}[5m])) by(instance) * 100",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "CPU other使用率",
+          "refId": "J"
+        },
+        {
+          "expr": "max(irate(node_network_transmit_bytes_total{job=~\"$job\",instance=~\"$node\"}[5m])*8) by (instance)",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "上传带宽",
+          "refId": "K"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "$node-CPU情况",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 11,
+        "x": 0,
+        "y": 11
+      },
+      "hiddenSeries": false,
+      "id": 13,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "seriesOverrides": [
+        {
+          "alias": "15分钟负载",
+          "lines": true
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "node_load1{instance=~\"$node\"}",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "1分钟负载",
+          "metric": "",
+          "refId": "A",
+          "step": 20,
+          "target": ""
+        },
+        {
+          "expr": "node_load5{instance=~\"$node\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "5分钟负载",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "expr": "node_load15{instance=~\"$node\"}",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "15分钟负载",
+          "refId": "C",
+          "step": 20
+        },
+        {
+          "expr": " sum(count(node_cpu_seconds_total{instance=~\"$node\", mode='system'}) by (cpu,instance)) by(instance)",
+          "format": "time_series",
+          "hide": true,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "CPU总核数",
+          "refId": "D",
+          "step": 20
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "custom",
+          "fill": true,
+          "fillColor": "#C4162A",
+          "line": true,
+          "lineColor": "#F2495C",
+          "op": "gt",
+          "value": 80,
+          "yaxis": "right"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "系统平均负载",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "percent",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 11,
+        "y": 11
+      },
+      "id": 23763572003,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "#3274D9",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "100 - (avg(irate(node_cpu_seconds_total{instance=~\"$node\",mode=\"idle\"}[5m])) * 100)",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "20,50",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CPU 总使用率 ",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "percent",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 15,
+        "y": 11
+      },
+      "id": 23763572005,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "#3274D9",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "{instance=\"localhost:9100\", job=\"cloud-monitor\"}",
+      "targets": [
+        {
+          "expr": "(1 - (node_memory_MemAvailable_bytes{instance=~\"$node\"} / (node_memory_MemTotal_bytes{instance=~\"$node\"})))* 100",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "60,80",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "内存使用率 ",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "percent",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 19,
+        "y": 11
+      },
+      "id": 23763572007,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "#3274D9",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "{device=\"/dev/vda1\", fstype=\"ext4\", instance=\"localhost:9100\", job=\"cloud-monitor\", mountpoint=\"/\"}",
+      "targets": [
+        {
+          "expr": "(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint=\"$maxmount\"}-node_filesystem_free_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint=\"$maxmount\"})*100 /(node_filesystem_avail_bytes {instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint=\"$maxmount\"}+(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint=\"$maxmount\"}-node_filesystem_free_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint=\"$maxmount\"}))",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "60,80",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "最大分区使用率",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "percent",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 11,
+        "y": 15
+      },
+      "id": 23763572009,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "#3274D9",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "{addr=\"192.168.1.1\", device=\"/dev/sda5\", fstype=\"xfs\", instance=\"192.168.1.1:9100\", job=\"node-exporter\", mountpoint=\"/\"}",
+      "targets": [
+        {
+          "expr": "(node_filesystem_size_bytes{mountpoint=\"/\",fstype=\"xfs\",instance=~\"$node\"} - node_filesystem_free_bytes{mountpoint=\"/\",fstype=\"xfs\",instance=~\"$node\"}) / node_filesystem_size_bytes{mountpoint=\"/\",fstype=\"xfs\",instance=~\"$node\"} * 100",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "60,80",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "磁盘使用率",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "percent",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 15,
+        "y": 15
+      },
+      "id": 23763572011,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "#3274D9",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "{instance=\"localhost:9100\", job=\"cloud-monitor\"}",
+      "targets": [
+        {
+          "expr": "(1 - ((node_memory_SwapFree_bytes{instance=~\"$node\"} + 1)/ (node_memory_SwapTotal_bytes{instance=~\"$node\"} + 1))) * 100",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "60,80",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "交换分区使用率",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "id": 299,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "https://github.com/coreutils/coreutils/blob/master/src/df.c",
+          "url": "https://github.com/coreutils/coreutils/blob/master/src/df.c"
+        }
+      ],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": null,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "总内存",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value #A",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "实例名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "instance",
+          "preserveFormat": false,
+          "sanitize": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "已使用内存",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "#73BF69",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "实际使用内存量",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "剩余内存",
+          "align": "auto",
+          "colorMode": "value",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "#FADE2A",
+            "#73BF69"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #D",
+          "thresholds": [
+            "20971520",
+            "209715200"
+          ],
+          "type": "number",
+          "unit": "bytes"
+        },
+        {
+          "alias": "内存使用率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #E",
+          "thresholds": [
+            "50",
+            "80"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "内存剩余",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #F",
+          "thresholds": [
+            "30",
+            "50"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "preserveFormat": true,
+          "sanitize": false,
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(node_memory_MemTotal_bytes{instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "总内存",
+          "refId": "A"
+        },
+        {
+          "expr": "node_memory_MemTotal_bytes{job=\"node-exporter\",instance=~\"$node\"} - node_memory_MemFree_bytes{job=\"node-exporter\",instance=~\"$node\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "已使用内存",
+          "refId": "B"
+        },
+        {
+          "expr": "node_memory_MemTotal_bytes{job=\"node-exporter\",instance=~\"$node\"} - node_memory_MemAvailable_bytes{job=\"node-exporter\",instance=~\"$node\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "实际使用内存量",
+          "refId": "C"
+        },
+        {
+          "expr": "node_memory_MemFree_bytes{job=\"node-exporter\",instance=~\"$node\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "剩余内存",
+          "refId": "D"
+        },
+        {
+          "expr": "(1-(node_memory_MemAvailable_bytes{job=\"node-exporter\",instance=~\"$node\"} / (node_memory_MemTotal_bytes{job=\"node-exporter\",instance=~\"$node\"})))* 100",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "内存使用率",
+          "refId": "E"
+        },
+        {
+          "expr": "((node_memory_MemAvailable_bytes{job=\"node-exporter\",instance=~\"$node\"} / (node_memory_MemTotal_bytes{job=\"node-exporter\",instance=~\"$node\"})))* 100",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "内存剩余",
+          "refId": "F"
+        }
+      ],
+      "title": "内存情况汇总",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "100%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": ""
+      },
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 1
+              },
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": 3
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "fontSize": "50%",
+      "format": "decbytes",
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 26
+      },
+      "hideTimeOverride": true,
+      "id": 235,
+      "interval": null,
+      "legend": {
+        "header": "test",
+        "percentage": true,
+        "percentageDecimals": 2,
+        "show": true,
+        "sortDesc": true,
+        "values": true
+      },
+      "legendType": "On graph",
+      "links": [],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "pieType": "pie",
+      "pluginVersion": "7.0.5",
+      "strokeWidth": "3",
+      "targets": [
+        {
+          "expr": "avg by (instance,device) (node_filesystem_size_bytes{ job=~\"$job\" ,fstype=~\"ext4|xfs\",instance=~\"$node\"})",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{device}}",
+          "refId": "A",
+          "step": 40
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "磁盘总量",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 26
+      },
+      "id": 174,
+      "links": [],
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "7.1.0-beta2",
+      "targets": [
+        {
+          "expr": "(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=~'$node',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{mountpoint}}",
+          "refId": "A"
+        },
+        {
+          "expr": "node_filesystem_files_free{instance=~'$node',fstype=~\"ext.?|xfs\"} / node_filesystem_files{instance=~'$node',fstype=~\"ext.?|xfs\"}",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+          "refId": "B"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "磁盘使用率",
+      "type": "gauge"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "分区使用率、磁盘读取、磁盘写入、下载带宽、上传带宽，如果有多个网卡或者多个分区，是采集的使用率最高的网卡或者分区的数值。",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 308,
+      "pageSize": 10,
+      "showHeader": true,
+      "sort": {
+        "col": null,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "实例名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "linkTargetBlank": false,
+          "linkTooltip": "浏览主机明细",
+          "linkUrl": "/d/9CWBz0bik/node-exporter?orgId=1&var-job=${job}&var-hostname=All&var-node=${__cell}&var-device=All",
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "设备读取MB速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "设备写入MB速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": " 设备名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "device",
+          "thresholds": [],
+          "type": "number",
+          "unit": "s"
+        },
+        {
+          "alias": "磁盘写入速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #F",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "磁盘读取速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 1,
+          "mappingType": 1,
+          "pattern": "Value #L",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "avg(node_uname_info{instance=~\"$node\"} ) by(nodename,instance)-0",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "主机名",
+          "refId": "A"
+        },
+        {
+          "expr": "avg(irate(node_disk_reads_completed_total{job=\"node-exporter\",instance=~\"$node\"}[5m]))by(instance,device)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "磁盘读取速率",
+          "refId": "L"
+        },
+        {
+          "expr": "irate(node_disk_writes_completed_total{job=\"node-exporter\",instance=~\"$node\"}[5m])",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "磁盘写入速率",
+          "refId": "F"
+        },
+        {
+          "expr": "(irate(node_disk_written_bytes_total{job=\"node-exporter\",instance=~\"$node\"}[1m]))/1024/1024",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "设备读取MB速率",
+          "refId": "B"
+        },
+        {
+          "expr": "(irate(node_disk_read_bytes_total{job=\"node-exporter\",instance=~\"$node\"}[1m]))/1024/1024",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "设备写入MB速率",
+          "refId": "C"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "磁盘读写速率(每页10行)",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {
+        "vda_write": "#6ED0E0"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Reads completed: 每个磁盘分区每秒读完成次数\n\nWrites completed: 每个磁盘分区每秒写完成次数\n\nIO now 每个磁盘分区每秒正在处理的输入/输出请求数",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 42
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 275,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/.*_读取$/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "irate(node_disk_reads_completed_total{instance=~\"$node\"}[5m])",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_读取",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "expr": "irate(node_disk_writes_completed_total{instance=~\"$node\"}[5m])",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_写入",
+          "refId": "B",
+          "step": 10
+        },
+        {
+          "expr": "node_disk_io_now{instance=~\"$node\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{device}}",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "磁盘读写速率（IOPS）",
+      "tooltip": {
+        "shared": false,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "iops",
+          "label": "读取（-）/写入（+）I/O ops/sec",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "vda_write": "#6ED0E0"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "Read bytes 每个磁盘分区每秒读取的比特数\nWritten bytes 每个磁盘分区每秒写入的比特数",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 168,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "/.*_读取$/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "irate(node_disk_read_bytes_total{instance=~\"$node\"}[5m])",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{device}}_读取",
+          "refId": "A",
+          "step": 10
+        },
+        {
+          "expr": "irate(node_disk_written_bytes_total{instance=~\"$node\"}[5m])",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{device}}_写入",
+          "refId": "B",
+          "step": 10
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "每秒磁盘读写容量",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "Bps",
+          "label": "读取（-）/写入（+）",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
+      "id": 302,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "https://github.com/coreutils/coreutils/blob/master/src/df.c",
+          "url": "https://github.com/coreutils/coreutils/blob/master/src/df.c"
+        }
+      ],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": null,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "总文件描述符",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value #A",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "实例名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "instance",
+          "preserveFormat": false,
+          "sanitize": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "alias": "文件描述符打开个数",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "#73BF69",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "文件描述符打开占比",
+          "align": "auto",
+          "colorMode": "value",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "剩余节点数",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "#FADE2A",
+            "#73BF69"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #D",
+          "thresholds": [
+            "20971520",
+            "209715200"
+          ],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "preserveFormat": true,
+          "sanitize": false,
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "avg(node_filefd_maximum{instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "expr": "avg(node_filefd_allocated{job=\"node-exporter\",instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "expr": "avg(node_filefd_allocated{job=\"node-exporter\",instance=~\"$node\"})by (instance) /avg(node_filefd_maximum{job=\"node-exporter\",instance=~\"$node\"}) by (instance) * 100 ",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        },
+        {
+          "expr": "avg(node_filesystem_files_free{mountpoint=\"$maxmount\",fstype=~\"ext.?|xfs\",instance=~\"$node\"}) by (instance)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "D"
+        },
+        {
+          "expr": "avg((1 -node_filesystem_files_free{job=\"node-exporter\",fstype=~\"ext4|xfs\",instance=~\"$node\"} / node_filesystem_files{job=\"node-exporter\",fstype=~\"ext4|xfs\",instance=~\"$node\"}) )by(instance,device,mountpoint)* 100 *100  ",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "E"
+        },
+        {
+          "expr": "((node_memory_MemAvailable_bytes{job=\"node-exporter\",instance=~\"$node\"} / (node_memory_MemTotal_bytes{job=\"node-exporter\",instance=~\"$node\"})))* 100",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "F"
+        }
+      ],
+      "title": "文件系统情况汇总",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 2,
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 20
+              },
+              {
+                "color": "dark-green",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 8,
+        "x": 0,
+        "y": 55
+      },
+      "id": 239,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "displayMode": "gradient",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "7.1.0-beta2",
+      "targets": [
+        {
+          "expr": "(1 -node_filesystem_files_free{job=\"node-exporter\",fstype=~\"ext4|xfs\",instance=~\"$node\"} / node_filesystem_files{job=\"node-exporter\",fstype=~\"ext4|xfs\",instance=~\"$node\"}) * 100  ",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "节点的inode的剩余可用的百分比",
+      "type": "bargauge"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "bps",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 8,
+        "y": 55
+      },
+      "id": 23763571995,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "{instance=\"localhost:9100\"}",
+      "targets": [
+        {
+          "expr": "max(irate(node_network_receive_bytes_total{job=~\"$job\",instance=~\"$node\"}[5m])*8) by (instance)",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "1024,10000",
+      "title": "下载带宽",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(245, 54, 54, 0.9)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(50, 172, 45, 0.97)"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "bps",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 12,
+        "y": 55
+      },
+      "id": 23763571997,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "{instance=\"localhost:9100\"}",
+      "targets": [
+        {
+          "expr": "max(irate(node_network_transmit_bytes_total{job=~\"$job\",instance=~\"$node\"}[5m])*8) by (instance)",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "1024,10000",
+      "title": "上传带宽",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorValue": true,
+      "colors": [
+        "rgba(50, 172, 45, 0.97)",
+        "rgba(237, 129, 40, 0.89)",
+        "rgba(245, 54, 54, 0.9)"
+      ],
+      "datasource": "Prometheus",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 16,
+        "y": 55
+      },
+      "id": 23763571999,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "node_tcp_connection_states{instance=\"192.168.1.56\", job=\"node-exporter\", state=\"established\"}",
+      "targets": [
+        {
+          "expr": "node_tcp_connection_states{job=~\"$job\", state=\"established\",instance=~\"$node\"}",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": "50,80",
+      "title": "ESTABLIASHED连接数",
+      "type": "singlestat",
+      "valueFontSize": "70%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "description": "分区使用率、磁盘读取、磁盘写入、下载带宽、上传带宽，如果有多个网卡或者多个分区，是采集的使用率最高的网卡或者分区的数值。",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 304,
+      "pageSize": 10,
+      "showHeader": true,
+      "sort": {
+        "col": null,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "主机名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "linkTargetBlank": false,
+          "linkTooltip": "浏览主机明细",
+          "linkUrl": "/d/9CWBz0bik/node-exporter?orgId=1&var-job=${job}&var-hostname=All&var-node=${__cell}&var-device=All",
+          "mappingType": 1,
+          "pattern": "nodename",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "TCP连接总数",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": " 设备名",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "device",
+          "thresholds": [],
+          "type": "number",
+          "unit": "s"
+        },
+        {
+          "alias": "每秒发包量",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #E",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "pps"
+        },
+        {
+          "alias": "每秒发送bits",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #F",
+          "thresholds": [
+            "10485760",
+            "20485760"
+          ],
+          "type": "number",
+          "unit": "bps"
+        },
+        {
+          "alias": "每秒接包量",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #G",
+          "thresholds": [
+            "70",
+            "85"
+          ],
+          "type": "number",
+          "unit": "pps"
+        },
+        {
+          "alias": "错包率",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #D",
+          "thresholds": [
+            "10485760",
+            "20485760"
+          ],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "alias": "每秒接收bits",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #L",
+          "thresholds": [
+            "10485760",
+            "20485760"
+          ],
+          "type": "number",
+          "unit": "bps"
+        },
+        {
+          "alias": "IB下载速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value #H",
+          "thresholds": [],
+          "type": "number",
+          "unit": "Bps"
+        },
+        {
+          "alias": "IB上传速率",
+          "align": "auto",
+          "colorMode": "cell",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Value #J",
+          "thresholds": [],
+          "type": "number",
+          "unit": "Bps"
+        },
+        {
+          "alias": "",
+          "align": "right",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "node_uname_info{job=~\"$job\",instance=~\"$node\"} - 0",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "主机名",
+          "refId": "A"
+        },
+        {
+          "expr": "avg by (environment,instance,device) (irate(node_network_receive_packets_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[1m]))",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "每秒接收比特数",
+          "refId": "L"
+        },
+        {
+          "expr": "avg by (environment,instance,device) (irate(node_network_transmit_bytes_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[1m]))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "每秒发送的比特数",
+          "refId": "F"
+        },
+        {
+          "expr": "sum by (environment,instance) (node_tcp_connection_states{job=~\"$job\",instance=~\"$node\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "TCP连接总数",
+          "refId": "B"
+        },
+        {
+          "expr": "\r\n((node_network_transmit_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}+node_network_receive_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"})/ node_network_transmit_packets_total{instance=~\"$node\"} )*100",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "established连接数",
+          "refId": "C"
+        },
+        {
+          "expr": "avg by (environment,instance,device) (irate(node_network_receive_packets_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[1m]))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "每秒接包量",
+          "refId": "G"
+        },
+        {
+          "expr": "avg by (environment,instance,device) (irate(node_network_transmit_packets_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[1m]))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "每秒发包量",
+          "refId": "E"
+        },
+        {
+          "expr": "\r\n((sum( increase( node_network_transmit_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[5m]) ) +sum( increase( node_network_receive_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}[5m]) ) ) / sum( increase( node_network_transmit_packets_total{instance=~\"$node\"}[5m] ) ) )*100",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "错包率",
+          "refId": "I"
+        },
+        {
+          "expr": "\n((node_network_transmit_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"}+node_network_receive_errs_total{device=~\"eth0|eth1|ens33|ens37|mlx4_0\",instance=~\"$node\"})/ node_network_transmit_packets_total{instance=~\"$node\"} )*100",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "D"
+        },
+        {
+          "expr": "irate(node_infiniband_port_data_received_bytes_total{device=~\"mlx4_0\",instance=~\"$node\",port=\"1\"}[5m])",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "IB下载速率",
+          "refId": "H"
+        },
+        {
+          "expr": "irate(node_infiniband_port_data_transmitted_bytes_total{device=~\"mlx4_0\",instance=~\"$node\",port=\"1\"}[5m])",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "IB上传速率",
+          "refId": "J"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "网络情况汇总(每页10行)",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {
+        "192.168.10.227:9100_em1_in下载": "super-light-green",
+        "192.168.10.227:9100_em1_out上传": "dark-blue"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 65
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 263,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "192.168.15.129:9100_ens33_out上传",
+          "bars": true,
+          "color": "#FADE2A",
+          "fill": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "irate(node_network_transmit_bytes_total{job=~\"$job\",instance=~\"$node\"}[5m])*8",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_out上传",
+          "refId": "B",
+          "step": 4
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "custom",
+          "fill": true,
+          "fillColor": "#F2495C",
+          "line": true,
+          "lineColor": "#C4162A",
+          "op": "gt",
+          "value": null,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "网络上传带宽(TCP)",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "192.168.10.227:9100_em1_in下载": "super-light-green",
+        "192.168.10.227:9100_em1_out上传": "dark-blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 9,
+        "y": 65
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 23763572013,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "192.168.15.128:9100_ens33_in下载",
+          "bars": true,
+          "color": "#FADE2A",
+          "lines": true,
+          "linewidth": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "max(irate(node_network_receive_bytes_total{job=~\"$job\",instance=~\"$node\"}[5m])*8) by (instance)",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_in下载",
+          "refId": "A",
+          "step": 4
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "custom",
+          "fill": true,
+          "fillColor": "#F2495C",
+          "line": true,
+          "lineColor": "#C4162A",
+          "op": "gt",
+          "value": null,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "网络下载带宽(TCP)",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 18,
+        "y": 65
+      },
+      "hiddenSeries": false,
+      "id": 23763572001,
+      "interval": "",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(sum(increase(node_netstat_Icmp_OutMsgs{instance=~\"$node\"}[5m]) ) / sum(increase(node_network_transmit_packets_total{instance=~\"$node\"}[5m]) ) )*100",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "丢包率",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "丢包率(TCP)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "192.168.10.227:9100_em1_in下载": "super-light-green",
+        "192.168.10.227:9100_em1_out上传": "dark-blue"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 0,
+        "y": 74
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 23763572019,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "192.168.15.129:9100_ens33_out上传",
+          "bars": true,
+          "color": "#FADE2A",
+          "fill": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "irate(node_infiniband_port_data_transmitted_bytes_total{device=~\"mlx4_0\",instance=~\"$node\",port=\"1\"}[5m])*8",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_out上传",
+          "refId": "B",
+          "step": 4
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "custom",
+          "fill": true,
+          "fillColor": "#F2495C",
+          "line": true,
+          "lineColor": "#C4162A",
+          "op": "gt",
+          "value": null,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "网络上传带宽(IB)",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "192.168.10.227:9100_em1_in下载": "super-light-green",
+        "192.168.10.227:9100_em1_out上传": "dark-blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 9,
+        "x": 9,
+        "y": 74
+      },
+      "height": "300",
+      "hiddenSeries": false,
+      "id": 23763572021,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.1.0-beta2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "alias": "192.168.15.128:9100_ens33_in下载",
+          "bars": true,
+          "color": "#FADE2A",
+          "lines": true,
+          "linewidth": 1
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "irate(node_infiniband_port_data_received_bytes_total{device=~\"mlx4_0\",instance=~\"$node\",port=\"1\"}[5m])*8",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}}_{{device}}_in下载",
+          "refId": "A",
+          "step": 4
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "custom",
+          "fill": true,
+          "fillColor": "#F2495C",
+          "line": true,
+          "lineColor": "#C4162A",
+          "op": "gt",
+          "value": null,
+          "yaxis": "left"
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "网络下载带宽(IB)",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "15s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "Prometheus",
+    "node_exporter",
+    "StarsL.cn"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "cloud-monitor",
+          "value": "cloud-monitor"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_uname_info, job)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "JOB",
+        "multi": true,
+        "name": "job",
+        "options": [],
+        "query": "label_values(node_uname_info, job)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "VM-16-12-ubuntu",
+          "value": "VM-16-12-ubuntu"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_uname_info{job=~\"$job\"}, nodename)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "主机名",
+        "multi": false,
+        "name": "hostname",
+        "options": [],
+        "query": "label_values(node_uname_info{job=~\"$job\"}, nodename)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allFormat": "glob",
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_uname_info{job=~\"$job\",nodename=~\"$hostname\"},instance)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Instance",
+        "multi": false,
+        "multiFormat": "regex values",
+        "name": "node",
+        "options": [],
+        "query": "label_values(node_uname_info{job=~\"$job\",nodename=~\"$hostname\"},instance)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allFormat": "glob",
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_network_info{device!~'tap.*|veth.*|br.*|docker.*|virbr.*|lo.*|cni.*'},device)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "网卡",
+        "multi": true,
+        "multiFormat": "regex values",
+        "name": "device",
+        "options": [],
+        "query": "label_values(node_network_info{device!~'tap.*|veth.*|br.*|docker.*|virbr.*|lo.*|cni.*'},device)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "/",
+          "value": "/"
+        },
+        "datasource": "Prometheus",
+        "definition": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.?|xfs\",mountpoint!~\".*pods.*\"}) by (mountpoint))))",
+        "hide": 2,
+        "includeAll": false,
+        "label": "最大挂载目录",
+        "multi": false,
+        "name": "maxmount",
+        "options": [],
+        "query": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.?|xfs\",mountpoint!~\".*pods.*\"}) by (mountpoint))))",
+        "refresh": 2,
+        "regex": "/.*\\\"(.*)\\\".*/",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "VM-16-12-ubuntu",
+          "value": "VM-16-12-ubuntu"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_uname_info{job=~\"$job\",instance=~\"$node\"}, nodename)",
+        "hide": 2,
+        "includeAll": false,
+        "label": "展示使用的主机名",
+        "multi": false,
+        "name": "show_hostname",
+        "options": [],
+        "query": "label_values(node_uname_info{job=~\"$job\",instance=~\"$node\"}, nodename)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "192.168.1.1",
+          "value": [
+            "192.168.1.1"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values( node_uname_info,instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "HOSTIP",
+        "multi": true,
+        "name": "hostip",
+        "options": [
+          {
+            "selected": true,
+            "text": "192.168.1.1",
+            "value": "192.168.1.1"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.10",
+            "value": "192.168.1.10"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.101",
+            "value": "192.168.1.101"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.101:9100",
+            "value": "192.168.1.101:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.102",
+            "value": "192.168.1.102"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.102:9100",
+            "value": "192.168.1.102:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.103",
+            "value": "192.168.1.103"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.103:9100",
+            "value": "192.168.1.103:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.104",
+            "value": "192.168.1.104"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.104:9100",
+            "value": "192.168.1.104:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.105",
+            "value": "192.168.1.105"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.105:9100",
+            "value": "192.168.1.105:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.106",
+            "value": "192.168.1.106"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.106:9100",
+            "value": "192.168.1.106:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.107",
+            "value": "192.168.1.107"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.107:9100",
+            "value": "192.168.1.107:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.108",
+            "value": "192.168.1.108"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.108:9100",
+            "value": "192.168.1.108:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.109",
+            "value": "192.168.1.109"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.109:9100",
+            "value": "192.168.1.109:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.10:9100",
+            "value": "192.168.1.10:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.11",
+            "value": "192.168.1.11"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.110",
+            "value": "192.168.1.110"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.110:9100",
+            "value": "192.168.1.110:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.111",
+            "value": "192.168.1.111"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.111:9100",
+            "value": "192.168.1.111:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.112",
+            "value": "192.168.1.112"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.112:9100",
+            "value": "192.168.1.112:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.113",
+            "value": "192.168.1.113"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.113:9100",
+            "value": "192.168.1.113:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.114",
+            "value": "192.168.1.114"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.114:9100",
+            "value": "192.168.1.114:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.115",
+            "value": "192.168.1.115"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.115:9100",
+            "value": "192.168.1.115:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.116",
+            "value": "192.168.1.116"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.116:9100",
+            "value": "192.168.1.116:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.117",
+            "value": "192.168.1.117"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.117:9100",
+            "value": "192.168.1.117:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.118",
+            "value": "192.168.1.118"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.118:9100",
+            "value": "192.168.1.118:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.119",
+            "value": "192.168.1.119"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.119:9100",
+            "value": "192.168.1.119:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.11:9100",
+            "value": "192.168.1.11:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.12",
+            "value": "192.168.1.12"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.120",
+            "value": "192.168.1.120"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.120:9100",
+            "value": "192.168.1.120:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.121",
+            "value": "192.168.1.121"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.121:9100",
+            "value": "192.168.1.121:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.122",
+            "value": "192.168.1.122"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.122:9100",
+            "value": "192.168.1.122:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.123",
+            "value": "192.168.1.123"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.123:9100",
+            "value": "192.168.1.123:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.12:9100",
+            "value": "192.168.1.12:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.13",
+            "value": "192.168.1.13"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.13:9100",
+            "value": "192.168.1.13:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.14",
+            "value": "192.168.1.14"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.14:9100",
+            "value": "192.168.1.14:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.15",
+            "value": "192.168.1.15"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.15:9100",
+            "value": "192.168.1.15:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.16",
+            "value": "192.168.1.16"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.16:9100",
+            "value": "192.168.1.16:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.17",
+            "value": "192.168.1.17"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.17:9100",
+            "value": "192.168.1.17:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.18",
+            "value": "192.168.1.18"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.18:9100",
+            "value": "192.168.1.18:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.19",
+            "value": "192.168.1.19"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.19:9100",
+            "value": "192.168.1.19:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.1:9100",
+            "value": "192.168.1.1:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.2",
+            "value": "192.168.1.2"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.20",
+            "value": "192.168.1.20"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.20:9100",
+            "value": "192.168.1.20:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.21",
+            "value": "192.168.1.21"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.21:9100",
+            "value": "192.168.1.21:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.22",
+            "value": "192.168.1.22"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.22:9100",
+            "value": "192.168.1.22:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.23",
+            "value": "192.168.1.23"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.23:9100",
+            "value": "192.168.1.23:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.24",
+            "value": "192.168.1.24"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.245:9100",
+            "value": "192.168.1.245:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.247:9100",
+            "value": "192.168.1.247:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.248:9100",
+            "value": "192.168.1.248:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.249:9100",
+            "value": "192.168.1.249:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.24:9100",
+            "value": "192.168.1.24:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.25",
+            "value": "192.168.1.25"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.250:9100",
+            "value": "192.168.1.250:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.25:9100",
+            "value": "192.168.1.25:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.26",
+            "value": "192.168.1.26"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.26:9100",
+            "value": "192.168.1.26:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.27",
+            "value": "192.168.1.27"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.27:9100",
+            "value": "192.168.1.27:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.28",
+            "value": "192.168.1.28"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.28:9100",
+            "value": "192.168.1.28:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.29",
+            "value": "192.168.1.29"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.29:9100",
+            "value": "192.168.1.29:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.2:9100",
+            "value": "192.168.1.2:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.3",
+            "value": "192.168.1.3"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.30",
+            "value": "192.168.1.30"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.30:9100",
+            "value": "192.168.1.30:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.31",
+            "value": "192.168.1.31"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.31:9100",
+            "value": "192.168.1.31:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.32",
+            "value": "192.168.1.32"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.32:9100",
+            "value": "192.168.1.32:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.33",
+            "value": "192.168.1.33"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.33:9100",
+            "value": "192.168.1.33:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.34",
+            "value": "192.168.1.34"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.34:9100",
+            "value": "192.168.1.34:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.35",
+            "value": "192.168.1.35"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.35:9100",
+            "value": "192.168.1.35:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.36",
+            "value": "192.168.1.36"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.36:9100",
+            "value": "192.168.1.36:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.37",
+            "value": "192.168.1.37"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.37:9100",
+            "value": "192.168.1.37:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.38",
+            "value": "192.168.1.38"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.38:9100",
+            "value": "192.168.1.38:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.39",
+            "value": "192.168.1.39"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.39:9100",
+            "value": "192.168.1.39:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.3:9100",
+            "value": "192.168.1.3:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.4",
+            "value": "192.168.1.4"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.40",
+            "value": "192.168.1.40"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.40:9100",
+            "value": "192.168.1.40:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.41",
+            "value": "192.168.1.41"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.41:9100",
+            "value": "192.168.1.41:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.42",
+            "value": "192.168.1.42"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.42:9100",
+            "value": "192.168.1.42:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.43",
+            "value": "192.168.1.43"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.43:9100",
+            "value": "192.168.1.43:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.44",
+            "value": "192.168.1.44"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.44:9100",
+            "value": "192.168.1.44:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.45",
+            "value": "192.168.1.45"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.45:9100",
+            "value": "192.168.1.45:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.46",
+            "value": "192.168.1.46"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.46:9100",
+            "value": "192.168.1.46:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.47",
+            "value": "192.168.1.47"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.47:9100",
+            "value": "192.168.1.47:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.48",
+            "value": "192.168.1.48"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.48:9100",
+            "value": "192.168.1.48:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.4:9100",
+            "value": "192.168.1.4:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.5",
+            "value": "192.168.1.5"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.50",
+            "value": "192.168.1.50"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.50:9100",
+            "value": "192.168.1.50:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.51",
+            "value": "192.168.1.51"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.51:9100",
+            "value": "192.168.1.51:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.52",
+            "value": "192.168.1.52"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.52:9100",
+            "value": "192.168.1.52:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.53",
+            "value": "192.168.1.53"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.53:9100",
+            "value": "192.168.1.53:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.54",
+            "value": "192.168.1.54"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.54:9100",
+            "value": "192.168.1.54:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.55",
+            "value": "192.168.1.55"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.55:9100",
+            "value": "192.168.1.55:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.56",
+            "value": "192.168.1.56"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.56:9100",
+            "value": "192.168.1.56:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.5:9100",
+            "value": "192.168.1.5:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.6",
+            "value": "192.168.1.6"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.6:9100",
+            "value": "192.168.1.6:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.7",
+            "value": "192.168.1.7"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.7:9100",
+            "value": "192.168.1.7:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.8",
+            "value": "192.168.1.8"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.8:9100",
+            "value": "192.168.1.8:9100"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.9",
+            "value": "192.168.1.9"
+          },
+          {
+            "selected": false,
+            "text": "192.168.1.9:9100",
+            "value": "192.168.1.9:9100"
+          }
+        ],
+        "query": "label_values( node_uname_info,instance)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "now": true,
+    "refresh_intervals": [
+      "15s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Node_Exporter_单台展示",
+  "uid": "single_node",
+  "version": 49
+}

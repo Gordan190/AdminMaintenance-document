@@ -1,0 +1,42 @@
+{{ define "__text_alert_list" }}{{ range .  }}
+==========云报警发生==========         
+告警程序：hpcc_alter          
+告警级别：{{ .Labels.severity }}    
+告警类型：{{ .Labels.alertname }}          
+主机IP: {{ .Labels.addr }}       
+主机名: {{ .Labels.addr }}       
+告警主题: {{ .Annotations.summary }}             
+告警描述: {{ .Annotations.description }}     
+触发时间: {{ dateInZone "2006.01.02 15:04:05" (.StartsAt) "Asia/Shanghai" }}     
+**图表:** [查看图表]({{ .GeneratorURL }})
+------------------------
+{{ end }}{{ end }}
+
+
+{{ define "__text_resolve_list" }}{{ range .  }}
+==========云报警恢复==========    
+恢复程序：hpcc_alter                 
+恢复类型：{{ .Labels.alertname }}          
+主机IP: {{ .Labels.addr }}     
+主机名: {{ .Labels.addr }}     
+恢复描述: {{ .Annotations.description }}    
+警报值: {{ .Annotations.value }} {{ .Labels.unit }}   
+触发时间: {{ dateInZone "2006.01.02 15:04:05" (.StartsAt) "Asia/Shanghai" }}     
+恢复时间: {{ dateInZone "2006.01.02 15:04:05" (.EndsAt) "Asia/Shanghai" }}       
+**图表:** [查看图表]({{ .GeneratorURL }})
+------------------------
+{{ end }}{{ end }}
+
+
+
+{{ define "ding.link.content" }}
+{{ if gt (len .Alerts.Firing) 0 -}}
+告警列表:
+-----------
+{{ template "__text_alert_list" .Alerts.Firing }}
+{{- end }}
+{{ if gt (len .Alerts.Resolved) 0 -}}
+恢复列表:
+{{ template "__text_resolve_list" .Alerts.Resolved }}
+{{- end }}
+{{- end }}
